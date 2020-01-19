@@ -1,0 +1,15 @@
+
+
+<div class="container">
+
+<div id="form">
+  <h3>{{title}}</h3>
+<form #login="ngForm" (ngSubmit)="onSubmit(login)" novalidate>
+    <input type="text" class="input form-control" placeholder="Username" name="username" ngModel="username">
+    <input type="password" class="input form-control" placeholder="Password" name="password" ngModel="password">
+    <button class="btn btn-danger" type="reset">Cancel</button>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+  <a href="" class="link">Register</a>
+</div>
+</div>

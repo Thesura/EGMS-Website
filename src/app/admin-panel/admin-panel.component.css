@@ -1,0 +1,19 @@
+.container{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: normal ;
+  justify-content: normal;
+  padding: 20px;
+}
+
+app-tile{
+  display: inline-block;
+  background: rgba(0,0,0,0);
+}
+
+tiles{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}

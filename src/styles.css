@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body{
+  background-image: url("https://cdn.vox-cdn.com/thumbor/rUL-yv_0KhQkAMZ0_zk96UXkHdM=/0x0:7952x5304/1200x800/filters:focal(3340x2016:4612x3288)/cdn.vox-cdn.com/uploads/chorus_image/image/60258313/GettyImages_917201002.0.jpg");
+}
+
