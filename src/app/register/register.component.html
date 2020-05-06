@@ -1,23 +1,12 @@
 <div class="container">
-
   <div id="form">
-    <h3>{{title}}</h3>
-    <form >
-      <input type="text" class="input form-control" placeholder="Username" name="username">
-      <input type="text" class="input form-control" placeholder="Email" name="email">
-      <select name="province" class="dropdown">
-        <option value="Central Province">Central Province</option>
-        <option value="Eastern Province">Eastern Province</option>
-        <option value="Northern Province">Northern Province</option>
-        <option value="Southern Province">Southern Province</option>
-        <option value="North Central Province">North Central Province</option>
-        <option value="North Western Province">North Western Province</option>
-        <option value="Sabaragamuwa Province">Sabaragamuwa Province</option>
-        <option value="Uva Province">Uva Province</option>
-      </select>
-      <input type="text" class="input form-control" placeholder="Address" name="address">
-      <input type="number" class="input form-control" placeholder="Phone No." name="phone">
-      <input type="password" class="input form-control" placeholder="Password" name="password">
+    <h3 class="mt-4">{{title}}</h3>
+    <form #form = "ngForm" (ngSubmit)="submit(form)">
+      <input ngModel #name="ngModel" (change)="log(name)" type="text" class="input form-control" placeholder="Username" name="name">
+      <input ngModel #email="ngModel" (change)="log(email)" type="text" class="input form-control" placeholder="Email" name="email">
+      <input ngModel #address="ngModel" (change)="log(address)" type="text" class="input form-control" placeholder="Address" name="address">
+      <input ngModel #phone="ngModel" (change)="log(phone)" type="number" class="input form-control" placeholder="Phone No." name="phone">
+      <input ngModel #password="ngModel" (change)="log(password)" type="password" class="input form-control" placeholder="Password" name="password">
       <button class="btn btn-danger">Cancel</button>
       <button class="btn btn-primary">Submit</button>
     </form>

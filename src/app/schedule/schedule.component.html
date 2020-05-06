@@ -1,5 +1,29 @@
 <div class="container">
   <div class="schedule">
-    <h1>Under construction</h1>
+    <h2 class="pt-4">Routine Repairs and power interruptions schedule</h2>
+    <br/>
+    <div *ngIf="role == 'staff'" class="text-center">
+      <button class="btn btn-primary mr-5" (click)="deleteOutdated()">Clear Outdated Entries</button>
+      <button class="btn btn-primary ml-5" routerLink="/create-schedule">Add a new Schedule Entry</button>
+    </div>
+    <br/>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Area</th>
+        <th scope="col">Type</th>
+        <th scope="col">Start time</th>
+        <th scope="col">End time</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let schedule of schedules">
+        <td scope="row">{{schedule.areaName}}</td>
+        <td>{{schedule.type}}</td>
+        <td>{{schedule.start_date_time}}</td>
+        <td>{{schedule.end_date_time}}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>

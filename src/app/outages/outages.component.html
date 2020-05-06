@@ -1,5 +1,36 @@
 <div class="container">
 <div class="outages">
-  <h1>Under construction</h1>
+  <h2 class="pt-4">Routine Repairs and power interruptions schedule</h2>
+  <br/>
+  <button class="btn btn-primary mr-5" (click)="deleteFixed()">Clear Fixed Outages</button>
+  <br/>
+  <br/>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Area</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Change Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let outage of outages">
+      <td scope="row">{{outage.area}}</td>
+      <td>{{outage.date}}</td>
+      <td>{{outage.status}}</td>
+      <td>
+        <div *ngIf="notSelected" class="alert alert-danger">Select a new status</div>
+        <select class="custom-select" [ngModel]="newStatus" #newStatus = "ngModel" (change)="notSelected = false">
+        <option value="1">Crew on the way</option>
+        <option value="2">Fixed</option>
+      </select>
+      </td>
+      <td>
+        <button class="btn-primary btn" (click)="changeStatus(outage, newStatus)">Apply</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 </div>

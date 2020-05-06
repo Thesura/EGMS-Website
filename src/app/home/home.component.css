@@ -4,7 +4,6 @@
   flex-direction: row;
   align-items: normal ;
   justify-content: normal;
-  padding: 20px;
 }
 
 app-tile{
@@ -15,5 +14,4 @@ app-tile{
 tiles{
   display: flex;
   flex-direction: row;
-  margin: 10px;
 }

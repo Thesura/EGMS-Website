@@ -1,0 +1,25 @@
+<div class="container">
+  <div id="form">
+    <h3 class="mt-4">{{title}}</h3>
+    <div *ngIf="!enableEditing">
+      <label class="input m-3">Username : {{username}}</label>
+      <label class="input m-3">Email : {{useremail}}</label>
+      <label class="input m-3" *ngIf="role == 'nonStaff'">Address : {{useraddress}}</label>
+      <label class="input m-3" *ngIf="role == 'staff'">Area of Operation : {{userarea}}</label>
+      <label class="input m-3">Phone no : {{userphone}}</label>
+      <button class="btn btn-primary" (click)="enableEditing = true">Edit detail</button>
+    </div>
+    <form #form = "ngForm" (ngSubmit)="submit(form)" *ngIf="enableEditing">
+      <input ngModel #name="ngModel" (change)="log(name)" type="text" class="input form-control" placeholder="{{username}}" name="name">
+      <input ngModel #email="ngModel" (change)="log(email)" type="text" class="input form-control" placeholder="{{useremail}}" name="email">
+      <input *ngIf="role == 'nonStaff'" ngModel #address="ngModel" (change)="log(address)" type="text" class="input form-control" placeholder="{{useraddress}}" name="address">
+      <input *ngIf="role == 'staff'" ngModel #area="ngModel" (change)="log(area)" type="text" class="input form-control" placeholder="{{userarea}}" name="area">
+      <input ngModel #phone="ngModel" (change)="log(phone)" type="number" class="input form-control" placeholder="{{userphone}}" name="phone">
+      <div class="input">Set a new Password?<button *ngIf="!editPassword" class="btn btn-primary" (click)="editPassword = true">Yes</button>
+        <button *ngIf="editPassword" class="btn btn-primary" (click)="editPassword = false">No</button></div>
+      <input *ngIf="editPassword" ngModel #password="ngModel" (change)="log(password)" type="password" class="input form-control" placeholder="New Password" name="password">
+      <button type="reset" (click)="enableEditing = false" class="btn btn-danger">Cancel</button>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

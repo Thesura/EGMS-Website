@@ -1,5 +1,20 @@
 <div class="container">
-<div class="dummy">
-  <h1>Under construction</h1>
-</div>
+
+  <div id="form">
+    <h3 class="mt-4">{{title}}</h3>
+    <form #form = "ngForm" (ngSubmit)="submit(form)">
+      <input ngModel #type = 'ngModel' (change)="log(type)" type="text" class="input form-control mt-4" placeholder="type" name="type">
+      <select ngModel #area = 'ngModel' (change)="log(area)" name="area" class="input form-control mb-4">
+        <option value="">Select an area</option>
+        <option value="1">Homagama</option>
+      </select>
+      <label>Start date</label>
+      <input ngModel #start_date_time = 'ngModel' (change)="log(start_date_time)" type="datetime-local" class="input form-control mb-4" name="start_date_time">
+      <label>End date</label>
+      <input ngModel #end_date_time = 'ngModel' (change)="log(end_date_time)" type="datetime-local" class="input form-control mb-4" name="end_date_time">
+      <input ngModel #poster_id = 'ngModel' type="hidden" name="poster_id">
+      <button class="btn btn-danger">Cancel</button>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </div>

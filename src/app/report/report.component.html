@@ -1,5 +1,14 @@
 <div class="container">
-  <div class="report">
-    <h1>Under construction</h1>
-  </div>
+    <div id="form">
+      <h3 class="mt-4">{{title}}</h3>
+      <label>Select your location</label>
+      <div class="map">
+        <div #gmap id="map" class="mr-5 ml-5" style="width:auto;height:300px"></div>
+      </div>
+      <form #form = "ngForm" (ngSubmit)="submit(form)">
+        <textarea ngModel #special_notes="ngModel" (change)="log(special_notes)" type="text" class="input form-control" placeholder="Special notes" name="special_notes" id="special_notes"></textarea>
+        <button class="btn btn-danger">Cancel</button>
+        <button class="btn btn-primary">Report</button>
+      </form>
+    </div>
 </div>

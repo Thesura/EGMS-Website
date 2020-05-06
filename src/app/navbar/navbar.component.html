@@ -1,18 +1,38 @@
-
-
-  <nav class="navbar-fixed-top navbar">
-    <div class="navbar-brand">
-      <img src="../../assets/images/pngocean.com.png" height="40" width="40"/>
-    </div>
-    <div class="navigation">
-      <ul class="nav nav-pills">
-        <li role="presentation"><a href="http://localhost:4200/home">Home</a> </li>
-        <li role="presentation"><a href="http://localhost:4200/report">Report</a> </li>
-        <li role="presentation"><a href="http://localhost:4200/schedule">Schedule</a> </li>
-        <li role="presentation"><a href="http://localhost:4200/map">Map</a> </li>
-      </ul>
-    </div>
-    <div class="user">
-      <h4>Username</h4>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="#">
+    <img class="m-0 p-0" src="../assets/images/pngocean.com.png"  width="40" height="40" alt="egms">
+  </a>
+  <div class="navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngIf="loggedIn && role === 'nonStaff'">
+        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="loggedIn && role === 'nonStaff'">
+        <a class="nav-link" routerLink="/report">Report</a>
+      </li>
+      <li class="nav-item" *ngIf="loggedIn && role === 'staff'">
+        <a class="nav-link" routerLink="/admin-panel">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="loggedIn && role === 'staff'">
+        <a class="nav-link" routerLink="/create-schedule"> Create Schedule</a>
+      </li>
+      <li class="nav-item" *ngIf="loggedIn">
+        <a class="nav-link" routerLink="/schedule">View Schedule</a>
+      </li>
+      <li class="nav-item" *ngIf="loggedIn && role === 'staff'">
+        <a class="nav-link" routerLink="/outages">Outages</a>
+      </li>
+      <li class="nav-item" *ngIf="loggedIn">
+        <a class="nav-link" routerLink="/map">Map</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="logout()">
+      <h5 class=" user mr-sm-2">{{username}}</h5>
+      <button *ngIf="loggedIn" class="btn btn-outline-success my-2 my-sm-0 mr-2" type="button" routerLink="/profile">Profile</button>
+      <div *ngIf="loggedIn; then thenBlock else elseBlock">
+      </div>
+      <ng-template #thenBlock><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log-out</button></ng-template>
+      <ng-template #elseBlock><button class="btn btn-outline-success my-2 my-sm-0" type="button" routerLink="/login">Log-in</button></ng-template>
+    </form>
+  </div>
+</nav>
